@@ -1,22 +1,124 @@
-body {
-    font-family: sans-serif;
-    background-color: lightgrey;
-    margin-top: 75px;
+
+*
+{
+border:0;
+margin:0;	
 }
 
-.center {
-    text-align: center;
+img
+{
+border:0px;	
 }
 
-.text-big {
-    font-size: 300%;
+body{
+font :14px 	Arial, Helvetica, sans-serif;
+background :url(images/h4.jpg);
+line-height : 20px;
 }
 
-.bold {
-    font-weight: bold;
+#main {
+	width: 988px;
+	margin: 0px auto;
+	background:url(images/main.jpg) right top no-repeat;}
+
+
+
+
+#header
+{
+width:1000px;
+height: 190px;	
 }
 
-.img-medium {
-    height: 200px;
+
+#buttons{
+	text-align:center;
+	height: 82px;
+	padding-left: 0px;
+	font-color :white;
+	background: url(images/buttons.png) left top no-repeat;
+	padding: 20px 30px 10px 30px;
 }
+
+.erik{
+                color: blue;
+                padding-top: 90px;
+                padding-left: 20px;
+                padding-right: 20px;
+                font-family: comic-sans;
+            }
+#buttons .but:hover {
+	background: url(images/but_hover.png) center center no-repeat;
+	color:white;
+	text-align:left;
+	}
+	
+.but_t {background: url(images/but_hover.gif) center bottom no-repeat;
+color: white;
+text-align:left;
+}
+
+
+
+
+#logo {	
+		padding: 0px 0px 0px 200px;
+}
+
+
+#content{
+	padding : 10px 10px 10px 50px;
+	color :white;
+}
+
+
+h1{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:14px;
+	font-weight: 100;
+	color: white;
+	text-align: left;
+	padding: 0px 0px 0px 0px;
+	line-height:normal;
+}
+
+
+h2{
+    font-family: "Comic Sans MS", cursive, sans-serif;
+	font-size:25px;
+	font-weight:150;
+	color:white;
+	text-align:centre;
+	padding: 0px 0px 0px 0px;
+	line-height:normal;
+}
+h3{
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	font-size:40px;
+	color:red;
+	text-align:centre;
+	padding: 0px 0px 100px 120px;
+}
+
+#b_col2 {
+	width: 253px;
+	float: left;
+	margin-left: 85px;
+}
+
+
+.fu_i {
+	padding: 0px 14px 0px 0px;
+	vertical-align: middle ;
+	color:#000000;
+}
+
+#bottom {
+	background: url(images/bottom.png) 43px 30px no-repeat;
+	color: white;
+}
+
+
+
+
 
