@@ -1,4 +1,4 @@
 console.log('Loaded!');
 
-var element = document.getElementById('main');
+var element = document.getElementById('main-text');
 element.innerHTMl = "erik";
