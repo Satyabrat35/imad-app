@@ -1,4 +1,9 @@
 console.log('Loaded!');
 
 var element = document.getElementById('main-text');
-element.innerHTML = "This is Satyabrat aka Erik";
+element.innerHTML = "Click the dragon";
+
+var img = document.getElementById('png');
+img.onclick = function() {
+    img.style.margintop = '400px';
+};
