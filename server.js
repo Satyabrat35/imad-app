@@ -5,26 +5,35 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var container = {
+    title : 'Article One | Satyabrat Bhol',
+    heading : 'Article One',
+    content : ''
+};
+
+
+
+
 app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 app.get('/article-one',function(req,res){
-   res.sendFile(path.join(__dirname, 'ui', 'Article-one.html'));
+res.sendFile(path.join(__dirname, 'ui', 'Article-one.html'));
 });
 
 app.get('/article-two',function(req,res){
-   res.sendFile(path.join(__dirname, 'ui', 'Article-two.html'));
+res.sendFile(path.join(__dirname, 'ui', 'Article-two.html'));
 });
 
 app.get('/article-three',function(req,res){
-   res.sendFile(path.join(__dirname, 'ui', 'Article-three.html'));
+res.sendFile(path.join(__dirname, 'ui', 'Article-three.html'));
 });
 app.get('/ui/style.css', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'style.css'));
+res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
 
 app.get('/ui/madi.png', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
+res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
 
 
@@ -33,5 +42,5 @@ app.get('/ui/madi.png', function (req, res) {
 
 var port = 80;
 app.listen(port, function () {
-  console.log(`IMAD course app listening on port ${port}!`);
+console.log(`IMAD course app listening on port ${port}!`);
 });
