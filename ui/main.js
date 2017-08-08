@@ -5,5 +5,5 @@ element.innerHTML = "Click the dragon";
 
 var img = document.getElementById('png');
 img.onclick = function() {
-    img.style.margintop = '400px';
+    img.style.marginRight = '400px';
 };
