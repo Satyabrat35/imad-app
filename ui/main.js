@@ -8,7 +8,7 @@ var img = document.getElementById('png');
 
 var marginRight = 0;
 function move() {
-    marginRight = marginRight + 5;
+    marginRight = marginRight + 1;
 img.style.marginRight= marginRight + "px";
     
 }
