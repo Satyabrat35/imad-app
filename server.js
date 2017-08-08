@@ -5,28 +5,78 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var container = {
+var articleone = {
     title : 'Article One | Satyabrat Bhol',
     heading : 'Article One',
-    content : ''
+    content : 'Contents of the article will be published shortly ....:)'
+};
+
+var articletwo = {
+    title : 'Article Two | Satyabrat Bhol',
+    heading : 'Article Two',
+    content : 'Contents of the article will be published shortly ....:)'
+
+};
+
+var articlethree = {
+    title : 'Article Three | Satyabrat Bhol',
+    heading : 'Article Three',
+    content : 'Contents of the article will be published shortly ....:)'
+
 };
 
 
+function createtemlate(data) {
+    
+var title = data.title;
+var heading =data.heading;
+var content = data.content;
+var htmltemplate=     `<html>
+    <head>
+        <title>
+            ${title}
+        </title>
+        <meta name="viewport" content="width=device-width,intial-scale=1" />
+                <link href="/ui/style.css" rel="stylesheet" />
 
+       
+    </head>
+    
+    <body>
+        <div>
+        <a href="/">Home</a>
+        </div>
+        <div class="erik">
+        
+        <h2>
+           ${heading}
+        </h2>
+        <hr/>
+        <div>
+           ${content}
+        </div>
+        </div>
+    </body>
+    
+</html>`
+    ;
+    return htmltemplate;
+}
 
 app.get('/', function (req, res) {
 res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
+
 app.get('/article-one',function(req,res){
-res.sendFile(path.join(__dirname, 'ui', 'Article-one.html'));
+res.send(createtemplate(articleone));
 });
 
 app.get('/article-two',function(req,res){
-res.sendFile(path.join(__dirname, 'ui', 'Article-two.html'));
+res.send(createtemplate(articletwo));
 });
 
 app.get('/article-three',function(req,res){
-res.sendFile(path.join(__dirname, 'ui', 'Article-three.html'));
+res.send(createtemplate(articlethree));
 });
 app.get('/ui/style.css', function (req, res) {
 res.sendFile(path.join(__dirname, 'ui', 'style.css'));
