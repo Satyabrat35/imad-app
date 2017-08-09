@@ -20,8 +20,7 @@ req.onreadystatechange = function(){
     
 };
 
-var nameinput = document.getElementById('name');
-var name = nameinput.value;
+
 var submit  = document.getElementById('subbtn');
 submit.onclick = function() {
     
@@ -41,7 +40,9 @@ req.onreadystatechange = function(){
         }
     }
 };
-    
+var nameinput = document.getElementById('name');
+var name = nameinput.value;
+    // the value must be refreshed before submitting
    req.open('GET','http://satyabrat35.imad.hasura-app.io/submit-name?name='+ name ,true);
    req.send(null);
     
