@@ -19,3 +19,17 @@ req.onreadystatechange = function(){
    req.send(null);
     
 };
+
+var nameinut = document.getElementById('name');
+var name = nameinput.value;
+var submit  = document.getElementById('subbtn');
+submit.onclick = function() {
+    
+    var names = ['aman','aditya','deepak','ritesh'];
+    var list = '';
+    for(var i=0;i<names.length;i++){
+        list = '<li>' + names[i] + '</li>';
+    }
+var ul = document.getElementById('nameslist');
+ul.innerHTML = list;
+};
