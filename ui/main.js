@@ -25,7 +25,7 @@ var name = nameinput.value;
 var submit  = document.getElementById('subbtn');
 submit.onclick = function() {
     
-    var names = ['aman','aditya','deepak','ritesh'];
+    var names = ['aman','aditya','deepak'];
     var list = '';
     for(var i=0;i < names.length ; i++){
         list = '<li>' + names[i] + '</li>';
