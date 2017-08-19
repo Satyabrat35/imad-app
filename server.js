@@ -143,7 +143,7 @@ app.post('/create-user',function(req,res){ //using a post metthood so as not to 
    
    var dbpass = hash(password,salt);   //using hash function defined by us
    
-   pool.query('INSERT INTO "user" VALUES($!,$2)',[username,dbpass],function(err,result){
+   pool.query('INSERT INTO "user" VALUES($1,$2)',[username,dbpass],function(err,result){
    if(err){
        res.status(500).send(err.toString());
    }
