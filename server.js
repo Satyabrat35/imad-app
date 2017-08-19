@@ -138,7 +138,7 @@ app.post('/create-user',function(req,res){ //using a post metthood so as not to 
     var username = req.body.username;
     var password = req.body.password;
     //load the JSON content
-   var salt = crypto.getRandomBytes(128).toString('hex'); 
+   var salt = crypto.randomBytes(128).toString('hex'); 
    
    var dbpass = hash(password,salt);   //using hash function defined by us
    
