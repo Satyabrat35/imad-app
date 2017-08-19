@@ -134,6 +134,7 @@ app.get('/articles/:articlename',function(req,res){
     });
 
 });
+
 app.post('/create-user',function(req,res){ //using a post metthood so as not to pass username and password in url 
     var username = req.body.username;
     var password = req.body.password;
@@ -142,7 +143,7 @@ app.post('/create-user',function(req,res){ //using a post metthood so as not to 
    
    var dbpass = hash(password,salt);   //using hash function defined by us
    
-   pool.query('INSERT INTO "user" VALUES($!,$2)',[username.dbpass],function(err,result){
+   pool.query('INSERT INTO "user" VALUES($!,$2)',[username,dbpass],function(err,result){
    if(err){
        res.status(500).send(err.toString());
    }
