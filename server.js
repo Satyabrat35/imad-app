@@ -4,6 +4,7 @@ var path = require('path');
 var Pool = require('pg').Pool;
 var crypto = require('crypto');
 var bodyParser = require('body-parser');// to return the password,username wherever it finds
+var sessions = require('express-session');
 
 var config = {
     user: 'satyabrat35',
@@ -16,6 +17,10 @@ var config = {
 var app = express();
 app.use(morgan('combined'));
 app.use(bodyParser.json());
+app.use(session({
+   secret : 'gaurdian',
+   cookie : {maxAge : 1000*60*60*24*30}
+}));
 
  var articles = {
    'article-one' : {title : 'Article One | Satyabrat Bhol',
