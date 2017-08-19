@@ -148,7 +148,7 @@ app.post('/create-user',function(req,res){ //using a post method so as not to pa
        res.status(500).send(err.toString());
    }
    else{
-       result.send('User added',username);
+       result.send('User added'+ username);
    }
    });
    
