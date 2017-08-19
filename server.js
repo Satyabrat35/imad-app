@@ -131,17 +131,17 @@ app.post('/login',function(req,res){
       }
       else{
           if(result.rows.length === 0){
-              res.status(403).send('Username/password incorrect');
+              res.send(403).send('Username/password incorrect');
           }
           else{
               var dbstring = result.rows[0].password;
               var salt = dbstring.split('$')[2];
-              var hashedpassword = hash(password,salt);
-              if(hashedpassword === dbstring){
-              res.send('user present:');
+              var hpass = hash(password,salt);
+              if(hpass === dbstring){
+              res.send('user present');
               }
               else{
-              res.status(403).send('Username/password incorrect');
+              res.send(403).send('Username/password incorrect');
               
               }
           }
