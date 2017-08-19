@@ -25,6 +25,7 @@ var password = document.getElementById('password').value;
     console.log(username);
     console.log(password);
    req.open('POST','http://satyabrat35.imad.hasura-app.io/login',true);
+   req.setRequestHeader('Content-Type','application/json');
    req.send(JSON.stringify({username : username , password:password}));
     
     
