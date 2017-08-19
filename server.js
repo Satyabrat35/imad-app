@@ -122,6 +122,35 @@ app.post('/create-user',function(req,res){
     
 });
 
+app.post('/login',function(req,res){
+   var username = req.body.username;
+   var password = req.body.password;
+   pool.query('SELECT * FROM "user" WHERE username = $1',[username],function(err,result){
+      if(err){
+          res.status(500).send(err.toString());
+      }
+      else{
+          if(result.rows.length === 0){
+              res.status(403).send('Username/password incorrect');
+          }
+          else{
+              var dbstring = result.rows[0].password;
+              var salt = dbstring.split('$')[2];
+              var hashedpassword = hash(password,salt);
+              if(hashedpassword === dbstring){
+              res.send('user present:',+username);
+              }
+              else{
+              res.status(403).send('Username/password incorrect');
+              
+              }
+          }
+      }
+       
+   });
+    
+});
+
 var names = [];
 app.get('/submit-name',function(req,res){
   
