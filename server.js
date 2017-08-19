@@ -90,6 +90,7 @@ app.get('/test-db',function(req,res){
    });
     
 });
+
 function hash(input,salt){
     
     var hash = crypto.pbkdf2Sync(input,salt,10000,512,'sha512');
@@ -135,7 +136,8 @@ app.get('/articles/:articlename',function(req,res){
 
 });
 
-app.post('/create-user',function(req,res){ //using a post method so as not to pass username and password in url 
+app.post('/create-user',function(req,res){ 
+    //using a post method so as not to pass username and password in url 
     var username = req.body.username;
     var password = req.body.password;
     //load the JSON content
@@ -145,7 +147,7 @@ app.post('/create-user',function(req,res){ //using a post method so as not to pa
    
    pool.query('INSERT INTO "user" (username,password) VALUES($1,$2)',[username,dbpass],function(err,result){
    if(err){
-       res.status(500).send(err.toString());
+       res.status(200).send(err.toString());
    }
    else{
        result.send('User added',+ username);
