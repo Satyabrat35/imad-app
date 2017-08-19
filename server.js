@@ -94,9 +94,33 @@ app.get('/test-db',function(req,res){
 function hash(input,salt){
     
     var hash = crypto.pbkdf2Sync(input,salt,10000,512,'sha512');
-    return ['pbkdf2Sync','10000',salt,hash.toString('hex')].join('$');
+   return ["pbkdf2","10000",salt,hashed.toString('hex')].join('$');
     
 }
+
+app.post('/create-user',function(req,res){
+    
+    //username,pasword
+    //JSON
+    
+    var username = req.body.username;
+    var password = req.body.password;
+    
+    var salt = crypto.randomBytes(128).toString('hex');
+    var dbString = hash(password,salt);
+    pool.query('INSERT into "user"(username,password) VALUES($1, $2)', [username,dbString],function(err,result){
+         if(err)
+       {
+           res.status(500).send(err.toString());
+       }
+       else
+       {
+           res.send('user successfully created:',+username);
+       }
+        
+    });
+    
+});
 
 var names = [];
 app.get('/submit-name',function(req,res){
@@ -136,10 +160,13 @@ app.get('/articles/:articlename',function(req,res){
 
 });
 
-app.post('/create-user',function(req,res){ 
-    //using a post method so as not to pass username and password in url 
+/*app.post('/create-user',function(req,res){ 
+   
+    //using a post method so as not to pass username and password in qury string
+    
     var username = req.body.username;
     var password = req.body.password;
+    
     //load the JSON content
    var salt = crypto.randomBytes(128).toString('hex'); 
    
@@ -154,7 +181,7 @@ app.post('/create-user',function(req,res){
    }
    });
    
-});
+});*/
 
 
 
