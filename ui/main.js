@@ -8,22 +8,24 @@ req.onreadystatechange = function(){
     if(req.readyState === XMLHttpRequest.DONE){
         
         if(req.status === 200){
-            var names = req.responseText;
-            names=JSON.parse(names); //convert string back into object
-             var list = '';
-            for(var i=0 ; i < names.length ; i++){
-              list += '<li>' + names[i] + '</li>';
-          }
-          var ul = document.getElementById('nameslist');
-           ul.innerHTML = list;
+            console.log("user logged in");
+            alert("user logged in");
+        }
+        else if(req.status === 403){
+            alert("incorrect username/password");
+        }
+        else if(req.status === 500){
+            alert("jai shree ram!!!");
         }
     }
 };
-var nameinput = document.getElementById('name');
-var name = nameinput.value;
+var username = document.getElementById('username').value;
+var password = document.getElementById('password').value;
     // the value must be refreshed before submitting
-   req.open('POST','http://satyabrat35.imad.hasura-app.io/submit-name?name='+ name ,true);
-   req.send(null);
+    console.log(username);
+    console.log(password);
+   req.open('POST','http://satyabrat35.imad.hasura-app.io/login',true);
+   req.send(JSON.stringify({username : username , password:password}));
     
     
 };
